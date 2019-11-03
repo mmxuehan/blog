@@ -96,6 +96,8 @@ export default {
             console.log(res);
             // let res = JSON.parse(response);
             if (res.status == 0) {
+              //登录成功需要跳转到首页，并且把登录注册换成用户名，还要把用户名和token传给vuex   ?
+              this.$store.commit('hasLogin',res.data)
               alert("登录成功,token为" + res.data);
             }
           })
@@ -105,6 +107,7 @@ export default {
           });
       } else {
         //邮箱登录
+        
       }
     },
     forgetpsd(){

@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store/index'
 import { 
   Button, Select ,Input, Row, Col, Option, Message, FormItem,
 } from 'element-ui';
@@ -21,5 +22,6 @@ Vue.prototype.$message = Message;
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })

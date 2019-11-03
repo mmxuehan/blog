@@ -4,8 +4,9 @@
     <div class="header">
       <div class="icon"></div>
       <h2 class="title">青春博客</h2>
-      <h4 class="title" id="index">首页</h4>
-      <h4 class="title" id="cover">发现</h4>
+      <!-- <router-link to="/homepage" tag="h4">首页</router-link> -->
+      <h4 class="title" id="index" @click="tohomepage">首页</h4>
+      <h4 class="title" id="cover" @click="tocover">发现</h4>
 
       <input type="text" class="search" />
       <div class="regist">
@@ -17,8 +18,8 @@
     </div>
     <!-- 头部结束 -->
 
-    <keep-alive>
-      <router-view />
+    <keep-alive exclude="detailData">
+      <router-view/>
     </keep-alive>
   </div>
 </template>
@@ -26,7 +27,15 @@
 <script>
 export default {
   name: "App",
-  methods: {}
+  methods: {
+    tohomepage(){
+      this.$router.replace('/homepage');
+    },
+    tocover(){
+      // this.$router.replace('/articledetail');
+      this.$router.replace('/homepage');
+    }
+  }
 };
 </script>
 
@@ -54,7 +63,10 @@ export default {
   float: left;
   line-height: 50px;
   margin-left: 20px;
+  color: #2F2F2F;
+  cursor: pointer;
 }
+
 .regist {
   float: right;
 }

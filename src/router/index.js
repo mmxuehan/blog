@@ -2,31 +2,25 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import login from '@/components/login'
 import regist from '@/components/regist'
-
-//子路由
+//首页路由
+import homepage from '@/components/homepage'
+//忘记密码路由
 import forgetpsd from "../components/user/forgetpsd.vue"
-// import loginmail from "../components/user/loginmail.vue"
+// 文章详情路由
+import articledetail from "../components/user/articleDetail.vue"
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
+      path: '/',
+      redirect: '/homepage'
+    },
+    {
       path: '/login',
       name: 'login',
       component: login,
-      // 配置子路由：
-      // children:[
-        
-      //   {
-      //     path:'loginname',
-      //     component:loginname
-      //   },
-      //   {
-      //     path:'loginmail',
-      //     component:loginmail
-      //   }
-      // ]
     },
     {
       path: '/regist',
@@ -37,6 +31,16 @@ export default new Router({
       path: '/forgetpsd',
       name: 'forgetpsd',
       component: forgetpsd
+    },
+    {
+      path: '/homepage',
+      name: 'homepage',
+      component: homepage
+    },
+    {
+      path: '/articledetail',
+      name: 'articledetail',
+      component: articledetail
     },
 
   ]

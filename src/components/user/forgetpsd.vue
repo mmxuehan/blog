@@ -201,9 +201,11 @@ export default {
             alert("网络错误");
           });
       } else if (this.nextmsg == "重置密码") {
+        //如果是重置密码，发送重置密码的请求
         let data = {
           userName: this.userName,
-          password: this.userPassword
+          password: this.userPassword,
+          token: this.token
         };
         if (this.userPassword != this.sureUserPassward) {
           // this.$message("")
@@ -214,12 +216,12 @@ export default {
           return;
         }
 
-        //最后在这里设置一个延时操作避免用户重复点击？
+        //最好在这里设置一个延时操作避免用户重复点击？
         ajax({
           url: "/user/setPassword",
           method: "post",
           data: qs.stringify(data),
-          headers: { token: this.token }
+          // headers: { token: this.token }
         })
           .then(res => {
             console.log("返回的数据为" + res);
